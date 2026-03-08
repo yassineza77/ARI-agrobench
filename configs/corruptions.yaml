@@ -1,0 +1,73 @@
+version: "1.0"
+description: "AgroBench corruption benchmark specification for ARI evaluation"
+
+reproducibility:
+  seeds:
+    corruption_generation: 1004
+  deterministic: true
+
+global_modulations:
+  # Applied to all families (common modulations)
+  b_bright_grid: [0.70, 1.00, 1.18]
+  b_blur_grid: [0, 2]
+  b_noise_grid: [0, 12.52]
+
+benchmark:
+  mode: "single_corruption"
+  severities: [1, 2, 3, 4, 5]
+
+families:
+
+  lowpass:
+    name: "Low-pass filtering (frequency attenuation)"
+    params_grid:
+      cutoff: [0.055, 0.070, 0.085, 0.100, 0.115]
+
+  downup:
+    name: "Down-up sampling (resolution degradation)"
+    params_grid:
+      scale: [0.30, 0.40, 0.50, 0.65, 0.80]
+
+  motion:
+    name: "Motion blur (camera/platform shake)"
+    params_grid:
+      ksize: [7, 11, 15, 21, 31]
+      angle: [-45, -20, 0, 20, 45]
+
+  fog:
+    name: "Fog / haze (contrast attenuation)"
+    params_grid:
+      beta: [0.05, 0.08, 0.11, 0.15, 0.20]
+      A: [200, 215, 230, 245, 255]
+
+  jpeg:
+    name: "JPEG compression artifacts"
+    params_grid:
+      quality: [80, 60, 40, 25, 10]
+
+  cutout:
+    name: "Structured occlusion (vegetation occlusion)"
+    params_grid:
+      boxes: [1, 2, 3, 5, 8]
+      max_frac: [0.10, 0.15, 0.20, 0.30, 0.40]
+
+  vignette:
+    name: "Vignette (edge darkening)"
+    params_grid:
+      strength: [0.20, 0.35, 0.50, 0.65, 0.80]
+
+  posterize:
+    name: "Posterize (bit-depth reduction)"
+    params_grid:
+      bits: [6, 5, 4, 3, 2]
+
+  colorcast:
+    name: "Color cast (white balance / channel scaling)"
+    params_grid:
+      # Use explicit channel triplets for reproducibility
+      rgb_triplets:
+        - [1.15, 1.00, 0.85]
+        - [1.10, 1.00, 0.90]
+        - [1.05, 1.00, 0.95]
+        - [0.95, 1.00, 1.05]
+        - [0.90, 1.00, 1.10]

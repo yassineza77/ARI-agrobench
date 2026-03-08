@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+title: "Agro-Robustness Index (ARI): A Normalized Robustness Metric for Object Detectors Under Agriculture Calibrated Corruptions"
+authors:
+  - family-names: "Zarrouk"
+    given-names: "Yassine"
+  - family-names: "Bourhaleb"
+    given-names: "Mohammed"
+  - family-names: "Rahmoun"
+    given-names: "Mohammed"
+  - family-names: "Hamdaoui"
+    given-names: "Hajar"
+  - family-names: "Hacham"
+    given-names: "Khalid"
+year-released: 2024
+repository-code: "https://github.com/yourusername/ARI_AgroBench"
+keywords:
+  - "robustness"
+  - "object detection"
+  - "agriculture"
+  - "corruption"
+  - "image distortion"
+license: "CC-BY-4.0"

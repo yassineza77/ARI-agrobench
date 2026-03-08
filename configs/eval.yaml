@@ -1,0 +1,53 @@
+# Grid evaluation configuration example
+
+# Corruption families and parameter ranges for grid search
+# Adjust these to match your research needs
+
+families:
+  lowpass:
+    description: "Out-of-focus blur via FFT lowpass"
+    params:
+      cutoff: [0.06, 0.08, 0.085, 0.10, 0.12]
+  
+  downup:
+    description: "Resolution degradation"
+    params:
+      scale: [0.70, 0.50, 0.40, 0.30]
+  
+  motion:
+    description: "Motion blur (camera shake)"
+    params:
+      - ksize: 11
+        angle: -15
+      - ksize: 11
+        angle: 0
+      - ksize: 11
+        angle: 15
+      - ksize: 21
+        angle: -15
+      - ksize: 21
+        angle: 0
+      - ksize: 21
+        angle: 15
+  
+  fog:
+    description: "Atmospheric haze"
+    params:
+      beta: [0.05, 0.08, 0.11, 0.14]
+      A: [200, 220, 240]
+  
+  poisson:
+    description: "Shot noise + Gaussian noise"
+    params:
+      alpha: [0.005, 0.01, 0.02, 0.04]
+      sigma: [6, 10, 16]
+
+# Global knobs applied to ALL families
+base_knobs:
+  b_bright: [0.70, 1.00, 1.18]
+  b_blur: [0, 2]
+  b_noise: [0, 12.52]
+  hue: [False]  # set to [False, True] to include hue jitter
+
+# Random seeds
+seeds: [1004, 2024]

@@ -1,22 +1,38 @@
 cff-version: 1.2.0
-title: "Agro-Robustness Index (ARI): A Normalized Robustness Metric for Object Detectors Under Agriculture Calibrated Corruptions"
+title: "ARI-AgroBench: Agri-Robustness Index (ARI) and AgroBench Benchmark"
+message: "If you use this software, please cite it. If you reference the method in a publication, please also cite the accompanying manuscript."
+type: software
 authors:
   - family-names: "Zarrouk"
     given-names: "Yassine"
-  - family-names: "Bourhaleb"
-    given-names: "Mohammed"
-  - family-names: "Rahmoun"
-    given-names: "Mohammed"
-  - family-names: "Hamdaoui"
-    given-names: "Hajar"
-  - family-names: "Hacham"
-    given-names: "Khalid"
-year-released: 2024
-repository-code: "https://github.com/yourusername/ARI_AgroBench"
+year-released: 2026
+repository-code: "https://github.com/yassineza77/ARI-agrobench"
+license: "MIT"
 keywords:
   - "robustness"
   - "object detection"
   - "agriculture"
   - "corruption"
   - "image distortion"
-license: "CC-BY-4.0"
+
+
+
+preferred-citation:
+  type: article
+  title: "Agro-Robustness Index (ARI): A Normalized Robustness Metric for Object Detectors Under Agriculture Calibrated Corruptions"
+  authors:
+    - family-names: "Zarrouk"
+      given-names: "Yassine"
+    - family-names: "khallou"
+      given-names: "abdelhak"
+    - family-names: "Bourhaleb"
+      given-names: "Mohammed"
+    - family-names: "Rahmoun"
+      given-names: "Mohammed"
+    - family-names: "Hamdaoui"
+      given-names: "Hajar"
+    - family-names: "Hachami"
+      given-names: "Khalid"
+  year: 2026
+  journal: "Machine Learning with Applications"
+  note: "Manuscript under review"

@@ -78,7 +78,7 @@ FAMILY_GRIDS = {
     "cutout":    [{"boxes": c, "max_frac": f} for c in [2, 4, 6, 8] for f in [0.10, 0.20, 0.30]],
     "vignette":  [{"strength": v} for v in [0.40, 0.70]],
     "posterize": [{"bits": n} for n in [5, 3]],
-    "poisson":   [{"alpha": a, "sigma": s} for a in [0.005, 0.01, 0.02, 0.04] for s in [6, 10, 16]],
+    "jpeg":      [{"quality": q} for q in [60, 40, 30, 20, 10]],
     "colorcast": [{"r": r, "g": g, "b": b} for (r, g, b) in [
         (1.5, 0.8, 0.6), (1.3, 1.0, 0.8), (1.1, 1.2, 0.8), (0.9, 1.3, 1.2)
     ]],

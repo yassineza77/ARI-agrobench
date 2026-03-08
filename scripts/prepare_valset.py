@@ -55,13 +55,6 @@ def motion_blur(img: Image.Image, ksize=9, angle=15):
     arr = cv2.filter2D(np.array(img), -1, k)
     return Image.fromarray(arr)
 
-def poisson_gaussian(arr: np.ndarray, alpha=0.01, sigma=8.0):
-    lam = np.clip(arr.astype(np.float32) * alpha, 0, 255)
-    shot = np.random.poisson(lam).astype(np.float32) / max(alpha, 1e-6)
-    read = np.random.normal(0, sigma, arr.shape).astype(np.float32)
-    out = np.clip(shot + read, 0, 255).astype(np.uint8)
-    return out
-
 def add_fog(img: Image.Image, beta=0.08, A=220):
     arr = np.array(img).astype(np.float32)
     t = np.exp(-beta)
@@ -123,7 +116,6 @@ def apply_family(img: Image.Image, family: str, p: dict) -> Image.Image:
     if family == "cutout":      return cutout(img, boxes=p["boxes"], max_frac=p["max_frac"])
     if family == "vignette":    return vignette(img, strength=p["strength"])
     if family == "posterize":   return Image.fromarray(posterize(np.array(img), bits=p["bits"]))
-    if family == "poisson":     return Image.fromarray(poisson_gaussian(np.array(img), alpha=p["alpha"], sigma=p["sigma"]))
     if family == "colorcast":   return color_cast(img, r=p["r"], g=p["g"], b=p["b"])
     return img
 
@@ -178,7 +170,7 @@ if __name__ == "__main__":
     ap.add_argument("--output-images", required=True, help="Path to output corrupted images")
     ap.add_argument("--output-labels", required=True, help="Path to output labels (copied from input)")
     ap.add_argument("--family", required=True,
-                    choices=["lowpass","downup","motion","fog","jpeg","cutout","vignette","posterize","poisson","colorcast"],
+                    choices=["lowpass","downup","motion","fog","jpeg","cutout","vignette","posterize","colorcast"],
                     help="Corruption family to apply")
     ap.add_argument("--params", required=True, help="JSON dict of parameters for the chosen family (also supports b_bright/b_blur/b_noise).")
     ap.add_argument("--hue", action="store_true", help="Apply random hue jitter")

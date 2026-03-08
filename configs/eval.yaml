@@ -36,11 +36,10 @@ families:
       beta: [0.05, 0.08, 0.11, 0.14]
       A: [200, 220, 240]
   
-  poisson:
-    description: "Shot noise + Gaussian noise"
+  jpeg:
+    description: "JPEG compression artifacts"
     params:
-      alpha: [0.005, 0.01, 0.02, 0.04]
-      sigma: [6, 10, 16]
+      quality: [60, 40, 30, 20, 10]
 
 # Global knobs applied to ALL families
 base_knobs:
@@ -50,4 +49,4 @@ base_knobs:
   hue: [False]  # set to [False, True] to include hue jitter
 
 # Random seeds
-seeds: [1004, 2024]
+seeds: [1004]

@@ -31,7 +31,7 @@
 ARI_AgroBench/
 ├── README.md                           # Main documentation
 ├── CITATION.cff                        # Citation metadata
-├── LICENSE                             # CC-BY-4.0 license
+├── LICENSE                             # MIT license
 ├── requirements.txt                    # Python dependencies
 ├── environment.yml                     # Conda environment
 │
@@ -54,7 +54,7 @@ ARI_AgroBench/
 Generates a corrupted validation set from an original dataset.
 
 **Corruption families:**
-- lowpass, downup, motion, fog, jpeg, cutout, vignette, posterize, poisson, colorcast
+- lowpass, downup, motion, fog, jpeg, cutout, vignette, posterize, colorcast
 
 **Usage:**
 ```bash
@@ -99,30 +99,9 @@ Label format (YOLO):
 ## Publication Notes
 
 - **MIT-friendly setup:** All code is reproducible and configurable
-- **No hardcoded paths:** Uses command-line arguments and config files
 - **Modular scripts:** Can run prepare_valset.py independently or in batch
 - **Output format:** CSV results are easy to parse and visualize
 - **Sample images included:** Optional—useful for supplementary material
-
-## Modification for Your Paper
-
-Before publishing, you may want to:
-
-1. **Update `CITATION.cff`:**
-   - Add your actual arXiv/DOI
-   - Update author names and affiliations
-
-2. **Customize `configs/eval.yaml`:**
-   - Adjust grid parameters to your research scope
-   - Add/remove corruption families as needed
-
-3. **Add example images to `examples/`:**
-   - Include 2-3 sample inputs + outputs for each family
-   - These help readers understand the corruptions
-
-4. **Update paths in `scripts/optimize_and_validate_grid.py`:**
-   - Comment out unused models
-   - Set default paths if distributing with sample data
 
 ## Requirements
 
@@ -133,7 +112,7 @@ Before publishing, you may want to:
 
 ## License
 
-CC-BY-4.0: You may use and adapt this code for research. Please cite the paper.
+MIT: You may use and adapt this code for research. Please cite the paper.
 
 ---
 

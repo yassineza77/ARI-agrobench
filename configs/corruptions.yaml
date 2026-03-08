@@ -21,7 +21,7 @@ families:
   lowpass:
     name: "Low-pass filtering (frequency attenuation)"
     params_grid:
-      cutoff: [0.055, 0.070, 0.085, 0.100, 0.115]
+      cutoff: [0.06, 0.08, 0.085, 0.10, 0.12]
 
   downup:
     name: "Down-up sampling (resolution degradation)"
